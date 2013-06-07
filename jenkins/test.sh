@@ -30,6 +30,16 @@ function github_mark_failed_on_exit {
 
 git remote prune origin
 
+# Jenkins Git plugin checks out the specific commit, 
+# placing us in a detached state.
+# Unfortunately, this makes it difficult to get accurate
+# diff information to calculate diff coverage.
+# To solve this, we set up a local branch to track the
+# remote branch we're testing.
+# $GIT_BRANCH is an environment variable set by Jenkins
+git branch -f test_branch $GIT_BRANCH
+git checkout test_branch
+
 github_mark_failed_on_exit
 github_status state:pending "is running"
 
