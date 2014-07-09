@@ -15,7 +15,7 @@ LMS
 Runtime Features
 ~~~~~~~~~~~~~~~~
 
-These are properties and methods available on ``self.runtime`` when a view or handler is executed by the LMS.
+These are properties and methods available on ``self.xmodule_runtime`` when a view or handler is executed by the LMS.
 
 * anonymous_student_id: An identifier unique to the student in the particular course
   that the block is being executed in. The same student in two different courses
